@@ -4,6 +4,9 @@ window.onload = function() {
   var loader, timer;
   var scene, camera, renderer;
 
+  var contwidth = window.innerWidth
+  var contheight = window.innerHeight
+
   /******* audio manager *******/
   var Loader = function() {};
 
@@ -98,7 +101,7 @@ window.onload = function() {
       scene = new THREE.Scene()
     }
     if (!camera) {
-      camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
+      camera = new THREE.PerspectiveCamera( 75, contwidth / contheight, 1, 1000 );
       camera.position.x = 0
       camera.position.y = 0
       camera.position.z = 100
@@ -106,8 +109,8 @@ window.onload = function() {
     }
     if (!renderer) {
       renderer = new THREE.WebGLRenderer()
-      renderer.setClearColor(new THREE.Color(0x000000));
-      renderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.setClearColor(new THREE.Color(0xffffff));
+      renderer.setSize(contwidth, contheight)
     }
 
     createParticles()
